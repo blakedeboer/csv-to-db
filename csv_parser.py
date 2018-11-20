@@ -1,11 +1,14 @@
 import csv
 
-# with open('sports_data.csv', newline='') as csvfile:
-# 	reader = csv.reader(csvfile)
-# 	print('reader', dir(reader))
+class CsvParser:
 
-csv = open('sports_data.csv', newline='')
+	def get_rows(self, file_name):
+		rows = []
+		csvfile = open(file_name, newline='')
+		reader = csv.reader(csvfile)
+		for row in reader:
+			rows.append(row)
+		return rows
 
-reader = csv.reader(csvfile)
 
 
