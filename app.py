@@ -1,8 +1,14 @@
-from csv_parser import get_rows
 
-CSV_FILE_NAME = "sports_data.csv"
+from csv_parser import CsvParser
+from database import save_rows
+
+CSV_FILE_NAME = "sports_data_2.csv"
 
 def run():
-	rows = get_rows(CSV_FILE_NAME)
+	csv_parser = CsvParser(CSV_FILE_NAME)
+	header = csv_parser.get_header()
+	print(header)
+	rows = csv_parser.get_rows()
+	save_rows(header, rows)
 
 run()
